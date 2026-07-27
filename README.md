@@ -242,7 +242,7 @@ to process the document and create the vector store.
 
 The main workspace where users upload startup documents, manage the analysis workflow, and access the application's core features.
 
-<img width="1303" height="646" alt="AI Startup Validator Dashboard" src="https://github.com/user-attachments/assets/1c8c0b16-b55b-494a-9a66-5e0bfd748967" />
+<img width="1303" height="646" alt="Image" src="https://github.com/user-attachments/assets/1c8c0b16-b55b-494a-9a66-5e0bfd748967" />
 
 
 ---
