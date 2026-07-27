@@ -1,4 +1,4 @@
-# 🚀 AI Startup Validator — Tips Hindawi Challenge (June–July 2026)
+#  Startup Idea Validator — Tips Hindawi Challenge (June–July 2026)
 
 🏆 This repository is my official submission for the **Tips Hindawi Challenge (June–July) 2026**.
 
@@ -9,7 +9,7 @@
 | Field | Value |
 |---|---|
 | **Full Name** | Abdelrahman Mohamed Fathi |
-| **Project Name** | AI Startup Validator |
+| **Project Name** | Startup Idea Validator |
 | **GitHub Username** | `Abdelrahman-18` |
 | **Challenge Batch** | June–July 2026 |
 | **Training Program** | Large Language Models (LLMs) Program |
