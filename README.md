@@ -238,15 +238,38 @@ to process the document and create the vector store.
 
 # 📸 Demo
 
-_Add screenshots or a demo GIF of the application here._
+## 🏠 AI Startup Validator Dashboard
 
-```
-[ Sidebar Setup ]
-        ↓
-[ Document Indexing ]
-        ↓
-[ Automated RAG Analysis & AI Chat ]
-```
+The main workspace where users upload startup documents, manage the analysis workflow, and access the application's core features.
+
+<img width="1303" height="646" alt="AI Startup Validator Dashboard" src="https://github.com/user-attachments/assets/1c8c0b16-b55b-494a-9a66-5e0bfd748967" />
+
+
+---
+
+## 📊 Startup Analysis & Business Insights
+
+The automated RAG analysis dashboard that extracts structured startup insights, including business model evaluation, market understanding, and SWOT analysis.
+
+<img width="1303" height="642" alt="Startup Analysis Dashboard" src="https://github.com/user-attachments/assets/7456bd02-c033-43bf-8719-c66507413a84" />
+
+
+---
+
+## 📈 Investment Readiness Evaluation
+
+An AI-powered scoring system that evaluates startup potential based on scalability, innovation, product maturity, and investment factors.
+
+<img width="1305" height="640" alt="Investment Readiness Score" src="https://github.com/user-attachments/assets/8021cfc9-c4bf-4c30-83f1-a2f7d3f5c3b4" />
+
+
+---
+
+## 🤖 AI Startup Copilot Chat
+
+A document-grounded conversational assistant that allows users to ask questions and explore insights directly from the uploaded startup documents using RAG.
+
+<img width="1302" height="653" alt="AI Startup Copilot Chat" src="https://github.com/user-attachments/assets/60e03a4b-29e2-4ba2-a737-164467350433" />
 
 ---
 
