@@ -90,16 +90,6 @@ Outputs:
 - Key risk factors
 - Improvement recommendations
 
----
-
-## 🌙 Modern Dark SaaS Interface
-
-A responsive dashboard experience featuring:
-
-- Dark-themed UI
-- Modular analytics tabs
-- Collapsible execution panels
-- Interactive startup evaluation workspace
 
 ---
 
