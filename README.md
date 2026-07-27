@@ -28,7 +28,6 @@
   * **Business Model Breakdown**: Summarizes industry, target audience, key problem, proposed solution, and revenue models.
   * **SWOT Analysis Matrix**: Automatically categorizes Strengths, Weaknesses, Opportunities, and Threats into a clean UI matrix.
   * **Investment Readiness Scoring**: Evaluates scalability, innovation, team, and product maturity to output a score (0–100) with risk factors.
-* **Modern Dark SaaS Interface**: Styled dashboard design featuring responsive components, tabbed modular analytics, and collapsible execution panels.
 * **Secure Environment Architecture**: Integrated with Streamlit Cloud secrets management to process requests via external LLM endpoints without exposing API credentials.
 
 ---
