@@ -144,7 +144,7 @@ Implemented secure deployment practices:
 ## 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_GITHUB_USERNAME/Startup_Idea_Validator.git
+git clone https://github.com/Abdelrahman-18/Startup_Idea_Validator.git
 
 cd Startup_Idea_Validator
 ```
