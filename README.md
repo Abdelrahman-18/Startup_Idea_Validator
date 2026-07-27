@@ -8,7 +8,7 @@
 | ---------------- | ------------------------------------ |
 | Full Name        | Abdelrahman Mohamed Fathi            |
 | Project Name     | AI Startup Validator                 |
-| GitHub Username  | `[Your-GitHub-Username]`             |
+| GitHub Username  | `Abdelrahman-18`             |
 | Challenge Batch  | June–July 2026                       |
 | Training Program | Large Language Models (LLMs) Program |
 | Organization     | [**Edrak for Ai**](https://edrak4ai.com/en)                         |
