@@ -216,7 +216,7 @@ http://localhost:8501
 3. Click:
 
 ```
-Index Document
+Build Knowledge Base
 ```
 
 to process the document and create the vector store.
@@ -307,20 +307,18 @@ for:
 
 ---
 
+
 # 📚 About the Challenge
 
-This project was developed as part of the:
+This project was developed as part of the [**Tips Hindawi**](https://www.tipshindawi.com/) **Challenge (June–July) 2026**.
 
-**Tips Hindawi Challenge (June–July 2026)**
+[Tips Hindawi](https://www.tipshindawi.com/) is the internships department of [**Edrak for Ai**](https://edrak4ai.com/en), and the challenge encourages participants to build real-world projects, apply practical skills, and showcase their work through GitHub.
 
-The challenge is organized by **Tips Hindawi**, the internships department of **Edrak for AI**, and encourages participants to build real-world AI projects, apply practical skills, and showcase their work through GitHub.
+For more information about the challenge, training programs, and upcoming batches, visit the official [Tips Hindawi](https://www.tipshindawi.com/) website.
 
 ---
 
+
 # 📄 License
 
-This project is shared for:
-
-- Educational purposes
-- Portfolio demonstration
-- AI engineering practice
+This project is shared for educational and portfolio purposes.
