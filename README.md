@@ -6,7 +6,7 @@
 
 The application is deployed and running on **Streamlit Community Cloud**:
 
-👉 [Try AI Startup Validator Live](https://startupideavalidator-up7zuzk6ztkjz5hkv93nca.streamlit.app/)
+👉 [Try Startup Idea Validator Live](https://startupideavalidator-up7zuzk6ztkjz5hkv93nca.streamlit.app/)
 
 ---
 
