@@ -1,15 +1,3 @@
-"""
-AI Startup Validator — Streamlit frontend
-Business Analysis + SWOT + Investment Readiness, powered by RAG over an
-uploaded PDF, using a free Hugging Face Inference API model.
-
-All RAG/chain/model logic lives in core/ — this file is UI only.
-
-Layout: chat is the primary surface (always visible, ChatGPT-style),
-with the three analysis chains living as a secondary panel underneath.
-See the accompanying explanation for what changed and why.
-"""
-
 import os
 import tempfile
 
@@ -27,10 +15,8 @@ from core.chains import (
 
 load_dotenv()
 
-# ---------------------------------------------------------------------------
-# Config
-# ---------------------------------------------------------------------------
 
+# Config
 st.set_page_config(page_title="AI Startup Validator", page_icon="🚀", layout="wide")
 
 
@@ -44,9 +30,7 @@ def get_hf_token() -> str:
     return os.getenv("HUGGINGFACEHUB_API_TOKEN", "")
 
 
-# ---------------------------------------------------------------------------
-# Theme — dark, minimal, AI-dashboard styling
-# ---------------------------------------------------------------------------
+
 
 THEME_CSS = """
 <style>
@@ -306,9 +290,8 @@ def render_score_card(score: int, explanation: str) -> None:
     )
 
 
-# ---------------------------------------------------------------------------
+
 # Cached resources (loaded once per app process, not once per user click)
-# ---------------------------------------------------------------------------
 
 @st.cache_resource(show_spinner=False)
 def load_chat_model(hf_token: str, model_id: str):
@@ -320,9 +303,8 @@ def load_embeddings():
     return _load_embeddings()
 
 
-# ---------------------------------------------------------------------------
+
 # Session state
-# ---------------------------------------------------------------------------
 
 defaults = {
     "vectorstore": None,
@@ -338,9 +320,8 @@ for key, value in defaults.items():
     if key not in st.session_state:
         st.session_state[key] = value
 
-# ---------------------------------------------------------------------------
-# Sidebar — upload + config + status
-# ---------------------------------------------------------------------------
+
+#sidebar
 
 with st.sidebar:
     st.markdown("### 🚀 Startup Validator")
@@ -370,9 +351,8 @@ with st.sidebar:
     render_card("Embedding model", EMBEDDING_MODEL)
     render_card("Chat model", model_id)
 
-# ---------------------------------------------------------------------------
-# Build knowledge base
-# ---------------------------------------------------------------------------
+
+#knowledge base
 
 if build_clicked and uploaded_file and hf_token:
     with st.spinner("Reading PDF, chunking, and embedding..."):
@@ -397,12 +377,8 @@ if build_clicked and uploaded_file and hf_token:
 
     st.toast(f"Indexed {n_pages} page(s) into {n_chunks} chunk(s).", icon="✅")
 
-# ---------------------------------------------------------------------------
 # Main area
-# ---------------------------------------------------------------------------
-
 if st.session_state.retriever is None:
-    # ---- Empty state ----
     st.markdown(
         """
         <div class="av-hero">
@@ -421,7 +397,7 @@ if st.session_state.retriever is None:
 
 chat_model = load_chat_model(hf_token, model_id)
 
-# ---- Header ----
+#header 
 header_col1, header_col2 = st.columns([3, 1])
 with header_col1:
     st.markdown("## 💬 Ask about your document")
@@ -429,11 +405,7 @@ with header_col1:
 with header_col2:
     st.markdown(render_badge("Knowledge base ready", "ready"), unsafe_allow_html=True)
 
-# ---- Conversation (primary surface) ----
-# Rendered in normal page flow (no fixed-height scroll box) so the newest
-# exchange always lands right above the chat input, at the bottom of the
-# page — a fixed-height box was hiding the latest message at its top edge
-# on every rerun, which is the opposite of what we want here.
+#Conversation 
 if not st.session_state.chat_history:
     st.caption("No messages yet — ask a question below to get started.")
 for msg in st.session_state.chat_history:
@@ -441,9 +413,7 @@ for msg in st.session_state.chat_history:
     with st.chat_message(role):
         st.write(msg.content)
 
-# ---- Chat input (Streamlit docks this to the bottom of the viewport
-#      automatically wherever it's called — this is the closest native
-#      equivalent to a fixed ChatGPT-style composer) ----
+
 question = st.chat_input("Ask something about the document...")
 if question:
     st.session_state.chat_history.append(HumanMessage(content=question))
@@ -468,14 +438,14 @@ if question:
 
 st.divider()
 
-# ---- Analysis tools (secondary panel, below the chat) ----
+#Analysis tools
 st.markdown("### 📊 Analysis")
 
 tab_business, tab_swot, tab_investment = st.tabs(
     ["📋 Business Analysis", "⚖️ SWOT", "💰 Investment Readiness"]
 )
 
-# --- Business ---
+#Business 
 with tab_business:
     if st.button("Run Business Analysis"):
         with st.spinner("Analyzing..."):
@@ -500,7 +470,7 @@ with tab_business:
             render_card("Business Model", result.business_model)
             render_card("Revenue Model", result.revenue_model)
 
-# --- SWOT ---
+#SWOT
 with tab_swot:
     if st.button("Run SWOT Analysis"):
         with st.spinner("Analyzing..."):
@@ -528,7 +498,7 @@ with tab_swot:
             for item in result.threats:
                 st.markdown(f"- {item}")
 
-# --- Investment ---
+#Investment 
 with tab_investment:
     if st.button("Run Investment Readiness"):
         with st.spinner("Analyzing..."):
