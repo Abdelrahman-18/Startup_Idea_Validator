@@ -1,6 +1,5 @@
-"""
-Pydantic schemas for the three analysis chains.
-"""
+#Pydantic schemas for the chains.
+
 
 from typing import List
 from pydantic import BaseModel, Field

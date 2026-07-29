@@ -1,7 +1,4 @@
-"""
-Prompts, parsers, and chain execution for the three analysis chains,
-plus the retrieval-augmented chat-with-memory helper.
-"""
+#prompts, parsers,chains , chat 
 
 import re
 import json
@@ -13,18 +10,14 @@ from langchain_core.messages import HumanMessage, AIMessage
 from core.models import BusinessAnalysis, SWOTAnalysis, InvestmentReadiness
 from core.rag import retrieve_context
 
-# ---------------------------------------------------------------------------
-# Parsers
-# ---------------------------------------------------------------------------
 
+# Parsers
 business_parser = PydanticOutputParser(pydantic_object=BusinessAnalysis)
 swot_parser = PydanticOutputParser(pydantic_object=SWOTAnalysis)
 investment_parser = PydanticOutputParser(pydantic_object=InvestmentReadiness)
 
-# ---------------------------------------------------------------------------
-# Prompts
-# ---------------------------------------------------------------------------
 
+# Prompts
 business_prompt = ChatPromptTemplate.from_template(
     """You are a senior startup analyst. Analyze the startup using ONLY the context below.
 Do not invent facts that are not supported by the context.
@@ -40,10 +33,6 @@ Extract the core business details of this startup.
 Respond with ONLY the JSON object. No extra text, no markdown code fences."""
 )
 
-# Deliberately hand-written (not schema-derived) instructions for SWOT: a
-# free instruct model is prone to echoing a JSON *schema* back when shown one
-# for a nested/array-heavy shape. A flat literal example avoids that failure
-# mode entirely.
 swot_prompt = ChatPromptTemplate.from_template(
     """You are a senior startup analyst. Perform a SWOT analysis using ONLY the context below.
 
@@ -63,7 +52,7 @@ Respond with ONLY a JSON object in exactly this shape, with no extra nesting:
   "threats": ["item 1", "item 2"]
 }}
 
-No extra text, no markdown code fences, no schema, no "properties" key -- just the flat JSON object above filled in with real content."""
+No extra text, no markdown code fences, no schema, no "properties" key, just the flat JSON object above filled in with real content."""
 )
 
 investment_prompt = ChatPromptTemplate.from_template(
@@ -87,10 +76,8 @@ RETRIEVAL_QUERIES = {
     "investment": "team traction scalability market size funding financials risks growth",
 }
 
-# ---------------------------------------------------------------------------
-# Generation + parsing
-# ---------------------------------------------------------------------------
 
+# generation and parsing
 def generate_text(chat_model, prompt: str) -> str:
     return chat_model.invoke(prompt).content
 
@@ -135,14 +122,9 @@ def run_chain(chat_model, prompt: ChatPromptTemplate, parser: PydanticOutputPars
     return safe_parse(raw, parser)
 
 
-# ---------------------------------------------------------------------------
-# Chat with memory
-# ---------------------------------------------------------------------------
 
+# Chat with memory
 def generate_chat_answer(chat_model, retriever, question: str, chat_history: list) -> str:
-    """Answer a follow-up question using retrieval + prior conversation
-    turns. chat_history is a list of HumanMessage/AIMessage, not including
-    the current question."""
     context, _ = retrieve_context(retriever, question)
 
     history_text = "\n".join(

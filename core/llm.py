@@ -1,12 +1,3 @@
-"""
-Chat model + embeddings setup.
-
-These are plain functions with no Streamlit dependency, so they can be
-called from app.py, a notebook, or a script. app.py wraps them with
-st.cache_resource so they're loaded once per process rather than once
-per click.
-"""
-
 from langchain_huggingface import HuggingFaceEndpoint, ChatHuggingFace, HuggingFaceEmbeddings
 
 DEFAULT_MODEL = "Qwen/Qwen2.5-7B-Instruct"

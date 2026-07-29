@@ -1,7 +1,3 @@
-"""
-RAG pipeline: PDF loading -> chunking -> in-memory Chroma -> retrieval.
-"""
-
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
@@ -18,9 +14,7 @@ def build_vectorstore(pdf_path: str, embeddings):
     splitter = RecursiveCharacterTextSplitter(chunk_size=CHUNK_SIZE, chunk_overlap=CHUNK_OVERLAP)
     chunks = splitter.split_documents(documents)
 
-    # No persist_directory: in-memory only. Each user session gets an
-    # isolated store instead of writing to a shared path on disk, which
-    # matters once more than one person uses the deployed app at once.
+
     vectorstore = Chroma.from_documents(documents=chunks, embedding=embeddings)
     return vectorstore, len(documents), len(chunks)
 
